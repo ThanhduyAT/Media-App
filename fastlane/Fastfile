@@ -1,0 +1,57 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+
+  desc "Upload to Firebase Distribution"
+  lane :upload_to_fb do
+    ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = '1200'
+    latest_release = firebase_app_distribution_get_latest_release(
+      app: "1:126871551648:ios:18f660a7edfcd0dd9a53c5"
+    )
+
+    if latest_release[:buildVersion]
+      new_build_number = latest_release[:buildVersion].to_i + 1
+      increment_build_number(build_number: new_build_number)
+    else
+      UI.message("⚠️ No previous build found, using default build number")
+    end
+
+    build_app(
+      scheme: "MediaApp-Clean_Architecture",
+      include_bitcode: false,
+      export_method: "enterprise",
+      export_options: {
+        method: "enterprise",
+        compileBitcode: false,
+        signingStyle: "automatic"
+      },
+      xcargs: "-allowProvisioningUpdates",
+    )
+
+    firebase_app_distribution(
+      app: "1:126871551648:ios:18f660a7edfcd0dd9a53c5",
+      release_notes: "New build from Fastlane!",
+      service_credentials_file: ENV["GOOGLE_APPLICATION_CREDENTIALS"],
+      groups: "all_testers"
+    )
+  end
+end
