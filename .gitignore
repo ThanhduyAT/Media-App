@@ -1,6 +1,4 @@
 # Xcode
-*.xcuserstat
-
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## User settings
@@ -66,5 +64,5 @@ fastlane/test_output
 media-app-ad190-firebase-adminsdk-fbsvc-e43da8a525.json
 
 # Mac OS X
-*.DS_Store
 MediaApp-Clean_Architecture.xcodeproj/project.xcworkspace/xcuserdata/duythanh.xcuserdatad/UserInterfaceState.xcuserstate
+.DS_Store
