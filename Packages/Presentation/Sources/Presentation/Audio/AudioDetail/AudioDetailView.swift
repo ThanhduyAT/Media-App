@@ -15,7 +15,7 @@ public struct AudioDetailView: View {
                 Button("Audio List") {}
                 Spacer()
                 
-                Button("Add File") {}
+                Button("Add File addddd") {}
             }
             .padding()
             
