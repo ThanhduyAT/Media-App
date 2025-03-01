@@ -66,3 +66,4 @@ media-app-ad190-firebase-adminsdk-fbsvc-e43da8a525.json
 # Mac OS X
 MediaApp-Clean_Architecture.xcodeproj/project.xcworkspace/xcuserdata/duythanh.xcuserdatad/UserInterfaceState.xcuserstate
 .DS_Store
+*.xcbkptlist
