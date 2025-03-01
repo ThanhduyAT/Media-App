@@ -16,7 +16,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Common"),
-        .package(path: "../Domain")
+        .package(path: "../Domain"),
+        .package(path: "../DIContainer")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
         .target(
             name: "Presentation",
             dependencies: ["Common",
-                           .product(name: "AudioDomain", package: "Domain")
+                           .product(name: "AudioDomain", package: "Domain"),
+                           .product(name: "DIContainer", package: "DIContainer")
                           ]
         ),
         .testTarget(

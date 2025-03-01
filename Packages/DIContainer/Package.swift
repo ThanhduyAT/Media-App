@@ -4,27 +4,35 @@
 import PackageDescription
 
 let package = Package(
-    name: "Common",
+    name: "DIContainer",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Common",
-            targets: ["Common"]),
+            name: "DIContainer",
+            targets: ["DIContainer"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/hmlongco/Factory.git", from: "2.4.3")
+        .package(path: "../Common"),
+        .package(path: "../Domain"),
+        .package(path: "../DataRepositories")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Common"),
+            name: "DIContainer",
+            dependencies: [
+                "Common",
+                .product(name: "AudioDomain", package: "Domain"),
+                .product(name: "DataRepositories", package: "DataRepositories")
+            ]
+        ),
         .testTarget(
-            name: "CommonTests",
-            dependencies: ["Common"]
+            name: "DIContainerTests",
+            dependencies: ["DIContainer"]
         ),
     ]
 )

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 public struct AudioDetailView: View {
+    @Environment(AppCoordinator.self) private var coordinator
     public var body: some View {
         VStack {
             HStack {

@@ -28,44 +28,21 @@ enum AudioScreen: Identifiable, Hashable {
 
 @Observable
 class AudioCoordinator: BaseCoordinatorProtocol {
+    typealias ScreenType = AudioScreen
+    typealias SheetType = AudioSheet
+    typealias FullScreenType = AudioFullScreenCover
+
     var path: NavigationPath = NavigationPath()
     
     var sheet: AudioSheet?
     
     var fullScreenCover: AudioFullScreenCover?
-    
-    func push(_ screen: AudioScreen) {
-        
-    }
-    
-    func presentSheet(_ sheet: AudioSheet) {
-        
-    }
-    
-    func presentFullScreenCover(_ fullScreenCover: AudioFullScreenCover) {
-        self.fullScreenCover = fullScreenCover
-    }
-    
-    func pop() {
-        
-    }
-    
-    func popToRoot() {
-        
-    }
-    
-    func dismissSheet() {
-        
-    }
-    
-    func dismissFullScreenOver() {
-        
-    }
 }
 
+@MainActor
 extension AudioCoordinator {
     @ViewBuilder
-    func build(_ screen: AudioScreen) -> some View {
+    func build(_ screen: ScreenType) -> some View {
         switch screen {
         case .audioDetail:
             AudioDetailView()
@@ -75,7 +52,7 @@ extension AudioCoordinator {
     }
     
     @ViewBuilder
-    func build(_ sheet: AudioSheet) -> some View {
+    func build(_ sheet: SheetType) -> some View {
         switch sheet {
         case .none:
             EmptyView()
@@ -83,12 +60,11 @@ extension AudioCoordinator {
     }
     
     @ViewBuilder
-    func build(_ fullScreenCover: AudioFullScreenCover) -> some View {
+    func build(_ fullScreenCover: FullScreenType) -> some View {
         switch fullScreenCover {
         case .none:
             EmptyView()
         }
     }
-
 }
 

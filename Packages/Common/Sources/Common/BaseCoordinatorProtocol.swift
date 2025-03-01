@@ -9,21 +9,23 @@
 import SwiftUI
 
 public protocol BaseCoordinatorProtocol: ObservableObject {
+    associatedtype ScreenType: Identifiable & Hashable
     associatedtype SheetType: Identifiable & Hashable
     associatedtype FullScreenType: Identifiable & Hashable
-    associatedtype ScreenType: Identifiable & Hashable
     
     var path: NavigationPath { get set }
-    var sheet: SheetType? { get set }
-    var fullScreenCover: FullScreenType? { get set }
-    
     func push(_ screen:  ScreenType)
-    func presentSheet(_ sheet: SheetType)
-    func presentFullScreenCover(_ fullScreenCover: FullScreenType)
     func pop()
     func popToRoot()
+    
+    
+    var sheet: SheetType? { get set }
+    func presentSheet(_ sheet: SheetType)
     func dismissSheet()
-    func dismissFullScreenOver()
+    
+    var fullScreenCover: FullScreenType? { get set }
+    func presentFullScreenCover(_ fullScreenCover: FullScreenType)
+    func dismissFullScreenCover()
 }
 
 public extension BaseCoordinatorProtocol where ScreenType: Hashable {

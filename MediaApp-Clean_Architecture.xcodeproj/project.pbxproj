@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		635D5CB92D72D06900F83853 /* AudioDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 635D5CB82D72D06900F83853 /* AudioDomain */; };
+		635D5CBC2D72DCF200F83853 /* DIContainer in Frameworks */ = {isa = PBXBuildFile; productRef = 635D5CBB2D72DCF200F83853 /* DIContainer */; };
 		63FDCB542D61C5D5001D4E62 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB532D61C5D5001D4E62 /* Common */; };
 		63FDCB562D61C5DD001D4E62 /* DataRepositories in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB552D61C5DD001D4E62 /* DataRepositories */; };
 		63FDCB5A2D61C5DD001D4E62 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB592D61C5DD001D4E62 /* Networking */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		633E721F2D5F47E200D1F069 /* DataRepositories */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataRepositories; sourceTree = "<group>"; };
+		635D5CBA2D72DCA100F83853 /* DIContainer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DIContainer; sourceTree = "<group>"; };
 		63C1699A2D5EF6AD00708163 /* MediaApp-Clean_Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MediaApp-Clean_Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C169AC2D5EF6AE00708163 /* MediaApp-Clean_ArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MediaApp-Clean_ArchitectureTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C169B62D5EF6AE00708163 /* MediaApp-Clean_ArchitectureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MediaApp-Clean_ArchitectureUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FDCB562D61C5DD001D4E62 /* DataRepositories in Frameworks */,
+				635D5CBC2D72DCF200F83853 /* DIContainer in Frameworks */,
 				635D5CB92D72D06900F83853 /* AudioDomain in Frameworks */,
 				63FDCB5A2D61C5DD001D4E62 /* Networking in Frameworks */,
 				63FDCB5C2D61C5DD001D4E62 /* Presentation in Frameworks */,
@@ -116,10 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				63C169CF2D5EFD0C00708163 /* Common */,
-				63C169D32D5EFD9D00708163 /* Presentation */,
-				63C169D02D5EFD2400708163 /* Domain */,
 				633E721F2D5F47E200D1F069 /* DataRepositories */,
+				635D5CBA2D72DCA100F83853 /* DIContainer */,
+				63C169D02D5EFD2400708163 /* Domain */,
 				63C169D12D5EFD3D00708163 /* Networking */,
+				63C169D32D5EFD9D00708163 /* Presentation */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -157,6 +161,7 @@
 				63FDCB592D61C5DD001D4E62 /* Networking */,
 				63FDCB5B2D61C5DD001D4E62 /* Presentation */,
 				635D5CB82D72D06900F83853 /* AudioDomain */,
+				635D5CBB2D72DCF200F83853 /* DIContainer */,
 			);
 			productName = "MediaApp-Clean_Architecture";
 			productReference = 63C1699A2D5EF6AD00708163 /* MediaApp-Clean_Architecture.app */;
@@ -614,6 +619,10 @@
 		635D5CB82D72D06900F83853 /* AudioDomain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AudioDomain;
+		};
+		635D5CBB2D72DCF200F83853 /* DIContainer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DIContainer;
 		};
 		63FDCB532D61C5D5001D4E62 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
