@@ -10,12 +10,11 @@ Folder Tree
  │    ├── 📄 MediaApp_Clean_ArchitectureApp.swift.swift
  │
  ├── 📂 Domain
- │    ├── 📂 Feature
- │    │    ├── 📂 Feature A
- │    │    │    ├── 📂 Entities
- │    │    │    ├── 📂 Interfaces
- │    │    │    ├── 📂 UseCases
- │    │    ├── 📂 Feature B
+ │    ├── 📂 Feature A
+ │    │    ├── 📂 Entities
+ │    │    ├── 📂 Interfaces
+ │    │    ├── 📂 UseCases
+ │    ├── 📂 Feature B
  │
  ├── 📂 DataRepositories
  │
