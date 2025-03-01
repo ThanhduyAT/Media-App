@@ -21,7 +21,7 @@ Folder Tree
  │
  ├── 📂 Presentation
  │
- ├── 📂 DIContainer         👈 Only use for Presentation. Import Domain, DataRepositories
+ ├── 📂 DIContainer         👈 Only used for Presentation Layer. Import Domain, DataRepositories
  │
  ├── 📂 Common
  │
