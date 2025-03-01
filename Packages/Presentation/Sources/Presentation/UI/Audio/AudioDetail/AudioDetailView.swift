@@ -9,14 +9,23 @@ import Foundation
 import SwiftUI
 
 public struct AudioDetailView: View {
-    @Environment(AppCoordinator.self) private var coordinator
+    @Environment(AudioCoordinator.self) private var coordinator
+    @State private var vm: AudioDetailViewModel
+    @State private var addAudioList: Bool = false
+    
+    init(vm: AudioDetailViewModel) {
+        self.vm = vm
+    }
+    
     public var body: some View {
         VStack {
             HStack {
                 Button("Audio List") {}
                 Spacer()
                 
-                Button("Add File addddd") {}
+                Button("Add File") {
+                    
+                }
             }
             .padding()
             
@@ -31,7 +40,12 @@ public struct AudioDetailView: View {
 //                .padding(.horizontal)
         }
         .navigationTitle("Music")
+        .onAppear() {
+            
+        }
+        .onChange(of: addAudioList) { audioList in
+            
+        }
+
     }
-    
-    public init() {}
 }

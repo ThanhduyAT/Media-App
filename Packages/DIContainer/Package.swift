@@ -15,6 +15,7 @@ let package = Package(
             targets: ["DIContainer"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/hmlongco/Factory.git", from: "2.3.1"),
         .package(path: "../Common"),
         .package(path: "../Domain"),
         .package(path: "../DataRepositories")
@@ -26,6 +27,7 @@ let package = Package(
             name: "DIContainer",
             dependencies: [
                 "Common",
+                .product(name: "Factory", package: "Factory"),
                 .product(name: "AudioDomain", package: "Domain"),
                 .product(name: "DataRepositories", package: "DataRepositories")
             ]

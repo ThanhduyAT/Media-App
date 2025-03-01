@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import AudioPlayer
+import AudioDomain
 import SwiftData
 
-public protocol AudioStorageInterface {
+public protocol AudioStorage {
     func fetchAll() -> [AudioPersistent]
     func save(_ audio: AudioPersistent)
 }
 
-public class AudioStorageImpl: AudioStorageInterface {
+public class AudioStorageImpl: AudioStorage {
     private let context: ModelContext
     
     public init(context: ModelContext) {

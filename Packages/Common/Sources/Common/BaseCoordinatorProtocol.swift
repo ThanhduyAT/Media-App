@@ -7,8 +7,9 @@
 
 
 import SwiftUI
+import Foundation
 
-public protocol BaseCoordinatorProtocol: ObservableObject {
+public protocol BaseCoordinatorProtocol: AnyObject {
     associatedtype ScreenType: Identifiable & Hashable
     associatedtype SheetType: Identifiable & Hashable
     associatedtype FullScreenType: Identifiable & Hashable

@@ -6,14 +6,27 @@
 //
 
 import Foundation
-import AudioPlayer
+import AudioDomain
 import AVFoundation
 import MediaPlayer
+import DIContainer
 
 @Observable
 public class AudioDetailViewModel {
+    var audioList: [Audio] = []
     var currentAudioIndex: Int = 0
     
-    public init() {}
+    private let audioUseCase: AudioUseCase
     
+    public init(factory: AudioDetailViewModelFactory) {
+        self.audioUseCase = factory.makeAudioUseCase()
+    }
 }
+
+extension AudioDetailViewModel {
+    func loadAudioList(list: [Audio]) async throws {
+        try await audioUseCase.loadPlaylist(list: list)
+    }
+}
+
+

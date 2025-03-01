@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
-import Presentation
 import Common
+import DIContainer
+import Factory
 
 enum AudioSheet: Identifiable, Hashable {
     case none
@@ -33,10 +34,10 @@ class AudioCoordinator: BaseCoordinatorProtocol {
     typealias FullScreenType = AudioFullScreenCover
 
     var path: NavigationPath = NavigationPath()
-    
     var sheet: AudioSheet?
-    
     var fullScreenCover: AudioFullScreenCover?
+    
+    let audioUseCase = Container.shared
 }
 
 @MainActor
@@ -45,7 +46,8 @@ extension AudioCoordinator {
     func build(_ screen: ScreenType) -> some View {
         switch screen {
         case .audioDetail:
-            AudioDetailView()
+            let vm = AudioDetailViewModel(factory: audioUseCase)
+            AudioDetailView(vm: vm)
         case .audioList:
             EmptyView()
         }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import AudioPlayer
+import AudioDomain
 
 class MockAudioRepository: AudioRepository {
     var mockAudioList: [Audio] = []

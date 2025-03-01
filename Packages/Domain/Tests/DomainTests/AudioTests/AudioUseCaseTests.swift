@@ -1,13 +1,13 @@
 import Testing
-@testable import AudioPlayer
+@testable import AudioDomain
 
 struct AudioUseCaseTests {
-    var useCase: AudioUseCase!
+    var useCase: AudioUseCaseImpl!
     var mockRepository: MockAudioRepository!
     
     init() {
         mockRepository = MockAudioRepository()
-        useCase = AudioUseCase(repository: mockRepository)
+        useCase = AudioUseCaseImpl(repository: mockRepository)
     }
 
     @Test

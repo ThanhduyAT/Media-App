@@ -15,7 +15,6 @@ struct TabbarCoordinatorView: View {
     var body: some View {
         TabView {
             // First Tab
-            
             NavigationStack(path: $audioCoordinator.path) {
                 audioCoordinator.build(.audioDetail)
                     .navigationDestination(for: AudioScreen.self) { route in
@@ -26,7 +25,7 @@ struct TabbarCoordinatorView: View {
                 Image(systemName: "music.note.list")
                 Text("Home")
             }
-//            .environmentObject(musicCoordinator)
+            .environment(audioCoordinator)
 
 
             // Second Tab
