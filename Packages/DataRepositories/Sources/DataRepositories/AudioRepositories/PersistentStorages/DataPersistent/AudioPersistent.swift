@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftData
-import AudioPlayer
+import AudioDomain
 
 @Model
 public final class AudioPersistent {

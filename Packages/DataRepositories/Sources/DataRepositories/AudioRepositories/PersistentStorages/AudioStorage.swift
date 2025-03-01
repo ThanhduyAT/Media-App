@@ -14,7 +14,7 @@ public protocol AudioStorageInterface {
     func save(_ audio: AudioPersistent)
 }
 
-public class AudioStorage: AudioStorageInterface {
+public class AudioStorageImpl: AudioStorageInterface {
     private let context: ModelContext
     
     public init(context: ModelContext) {

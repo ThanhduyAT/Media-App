@@ -11,8 +11,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "AudioPlayer",
-            targets: ["AudioPlayer"]),
+            name: "AudioDomain",
+            targets: ["AudioDomain"]),
     ],
     dependencies: [
         .package(path: "../Common")
@@ -21,13 +21,13 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "AudioPlayer",
+            name: "AudioDomain",
             dependencies: ["Common"]
         ),
         .testTarget(
             name: "DomainTests",
             dependencies: [
-                "AudioPlayer"
+                "AudioDomain"
             ]
         ),
     ]

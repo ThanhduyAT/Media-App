@@ -6,14 +6,14 @@
 //
 
 import Foundation
-import AudioPlayer
+import AudioDomain
 
 public final class AudioRepositoryImpl {
     // Todo
     private var isLostRemoteConnection: Bool = true
-    private let localStorage: AudioStorage
+    private let localStorage: AudioStorageInterface
     
-    init(localStorage: AudioStorage) {
+    init(localStorage: AudioStorageInterface) {
         self.localStorage = localStorage
     }
 }

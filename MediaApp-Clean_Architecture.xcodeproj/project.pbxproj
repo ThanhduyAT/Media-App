@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635D5CB92D72D06900F83853 /* AudioDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 635D5CB82D72D06900F83853 /* AudioDomain */; };
 		63FDCB542D61C5D5001D4E62 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB532D61C5D5001D4E62 /* Common */; };
 		63FDCB562D61C5DD001D4E62 /* DataRepositories in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB552D61C5DD001D4E62 /* DataRepositories */; };
-		63FDCB582D61C5DD001D4E62 /* AudioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB572D61C5DD001D4E62 /* AudioPlayer */; };
 		63FDCB5A2D61C5DD001D4E62 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB592D61C5DD001D4E62 /* Networking */; };
 		63FDCB5C2D61C5DD001D4E62 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 63FDCB5B2D61C5DD001D4E62 /* Presentation */; };
 /* End PBXBuildFile section */
@@ -65,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FDCB582D61C5DD001D4E62 /* AudioPlayer in Frameworks */,
 				63FDCB562D61C5DD001D4E62 /* DataRepositories in Frameworks */,
+				635D5CB92D72D06900F83853 /* AudioDomain in Frameworks */,
 				63FDCB5A2D61C5DD001D4E62 /* Networking in Frameworks */,
 				63FDCB5C2D61C5DD001D4E62 /* Presentation in Frameworks */,
 				63FDCB542D61C5D5001D4E62 /* Common in Frameworks */,
@@ -156,6 +156,7 @@
 				63FDCB572D61C5DD001D4E62 /* AudioPlayer */,
 				63FDCB592D61C5DD001D4E62 /* Networking */,
 				63FDCB5B2D61C5DD001D4E62 /* Presentation */,
+				635D5CB82D72D06900F83853 /* AudioDomain */,
 			);
 			productName = "MediaApp-Clean_Architecture";
 			productReference = 63C1699A2D5EF6AD00708163 /* MediaApp-Clean_Architecture.app */;
@@ -610,6 +611,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		635D5CB82D72D06900F83853 /* AudioDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AudioDomain;
+		};
 		63FDCB532D61C5D5001D4E62 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;

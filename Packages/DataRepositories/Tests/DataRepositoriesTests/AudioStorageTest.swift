@@ -1,5 +1,5 @@
 import Testing
-import AudioPlayer
+import AudioDomain
 import SwiftData
 @testable import DataRepositories
 
@@ -13,7 +13,7 @@ class AudioStorageTest {
     }
     
     @Test func testSaveAudio() async throws {
-        let storage = AudioStorage(context: modelContext)
+        let storage = AudioStorageImpl(context: modelContext)
         let audioPersistent = AudioPersistent(
             id: "1",
             duration: 3.0,
