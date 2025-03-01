@@ -25,7 +25,7 @@ struct MediaApp_Clean_ArchitectureApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootCoordinatorView()
+            AppCoordinatorView()
         }
         .modelContainer(sharedModelContainer)
     }

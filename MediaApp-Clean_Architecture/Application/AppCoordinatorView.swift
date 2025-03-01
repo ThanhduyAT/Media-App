@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RootCoordinatorView: View {
+struct AppCoordinatorView: View {
     @State private var appCoordinator = AppCoordinator()
     
     var body: some View {

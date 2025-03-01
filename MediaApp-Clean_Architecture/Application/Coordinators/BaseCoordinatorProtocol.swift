@@ -22,5 +22,4 @@ protocol BaseCoordinatorProtocol: ObservableObject {
     func popToRoot()
     func dismissSheet()
     func dismissFullScreenOver()
-
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TabbarCoordinatorView: View {
     @State private var audioCoordinator = AudioCoordinator()
+    @Environment(AppCoordinator.self) private var appCoordinator
     
     var body: some View {
         TabView {
