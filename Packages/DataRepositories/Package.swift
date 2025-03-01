@@ -24,7 +24,7 @@ let package = Package(
         .target(
             name: "DataRepositories",
             dependencies: ["Common",
-                           .product(name: "AudioPlayer", package: "Domain")
+                           .product(name: "AudioDomain", package: "Domain")
                           ]
         ),
         .testTarget(
