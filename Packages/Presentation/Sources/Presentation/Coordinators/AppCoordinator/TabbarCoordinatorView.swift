@@ -20,6 +20,9 @@ struct TabbarCoordinatorView: View {
                     .navigationDestination(for: AudioScreen.self) { route in
                         audioCoordinator.build(route)
                     }
+                    .fullScreenCover(item: $audioCoordinator.fullScreenCover) { route in
+                        audioCoordinator.build(route)
+                    }
             }
             .tabItem {
                 Image(systemName: "music.note.list")

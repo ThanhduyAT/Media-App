@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Audio: Identifiable, Equatable {
+public struct Audio {
     public let id: String
     public let duration: Double
     public let url: String

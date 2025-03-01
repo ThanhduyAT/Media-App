@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-public struct AudioDetailView: View {
-    @Environment(AudioCoordinator.self) private var coordinator
+struct AudioDetailView: View {
+    @Environment(AudioCoordinator.self) private var audioCoordinator
     @State private var vm: AudioDetailViewModel
     @State private var addAudioList: Bool = false
     
@@ -17,35 +17,43 @@ public struct AudioDetailView: View {
         self.vm = vm
     }
     
-    public var body: some View {
+    var body: some View {
         VStack {
             HStack {
                 Button("Audio List") {}
                 Spacer()
                 
                 Button("Add File") {
-                    
+                    audioCoordinator.presentFullScreenCover(.audioPicker)
                 }
             }
             .padding()
             
             Spacer()
             
-//            Text(vm.audioPlayer?.url?.lastPathComponent ?? "")
-//                .font(.largeTitle)
+            playContainerView
             
             Spacer()
-            
-//            ProgressView(value: vm.currentTime, total: vm.duration)
-//                .padding(.horizontal)
         }
         .navigationTitle("Music")
         .onAppear() {
             
         }
-        .onChange(of: addAudioList) { audioList in
-            
+        .onChange(of: audioCoordinator.audioList, { oldValue, newValue in
+            vm.taskLoadAudioList(list: newValue)
+        })
+    }
+    
+    var playContainerView: some View {
+        HStack {
+            Button(action: {
+                vm.play()
+            }) {
+                Image(systemName: "play.circle")
+                    .scaleEffect(1.1)  // Apply scale effect based on isPlaying
+                    .transition(.scale)  // Add scale transition
+            }
+            .font(.system(size: 40))
         }
-
     }
 }

@@ -41,7 +41,7 @@ public class AudioUseCaseImpl: AudioUseCase {
 
 extension AudioUseCaseImpl {
     public func loadPlaylist(list: [Audio] = []) async throws {
-        if list.isEmpty {
+        if !list.isEmpty {
             let urls = list.compactMap({ item in
                 URL(string: item.url)
             })

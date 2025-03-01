@@ -19,7 +19,6 @@ public protocol BaseCoordinatorProtocol: AnyObject {
     func pop()
     func popToRoot()
     
-    
     var sheet: SheetType? { get set }
     func presentSheet(_ sheet: SheetType)
     func dismissSheet()
@@ -27,40 +26,6 @@ public protocol BaseCoordinatorProtocol: AnyObject {
     var fullScreenCover: FullScreenType? { get set }
     func presentFullScreenCover(_ fullScreenCover: FullScreenType)
     func dismissFullScreenCover()
-}
-
-public extension BaseCoordinatorProtocol where ScreenType: Hashable {
-    func push(_ screen: ScreenType) {
-        path.append(screen)
-    }
-    
-    func pop() {
-        path.removeLast()
-    }
-    
-    func popToRoot() {
-        path.removeLast(path.count)
-    }
-}
-
-public extension BaseCoordinatorProtocol where SheetType: Hashable {
-    func presentSheet(_ sheet: SheetType) {
-        self.sheet = sheet
-    }
-    
-    func dismissSheet() {
-        self.sheet = nil
-    }
-}
-
-public extension BaseCoordinatorProtocol where FullScreenType: Hashable {
-    func presentFullScreenCover(_ fullScreenCover: FullScreenType) {
-        self.fullScreenCover = fullScreenCover
-    }
-    
-    func dismissFullScreenCover() {
-        self.fullScreenCover = nil
-    }
 }
 
 

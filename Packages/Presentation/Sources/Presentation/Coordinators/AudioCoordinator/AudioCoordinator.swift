@@ -17,7 +17,7 @@ enum AudioSheet: Identifiable, Hashable {
 }
 
 enum AudioFullScreenCover: Identifiable, Hashable {
-    case none
+    case audioPicker
     var id: Self { return self }
 }
 
@@ -38,6 +38,42 @@ class AudioCoordinator: BaseCoordinatorProtocol {
     var fullScreenCover: AudioFullScreenCover?
     
     let audioUseCase = Container.shared
+    
+    private(set) var audioList: [AudioModel] = []
+}
+
+extension AudioCoordinator {
+    func push(_ screen: ScreenType) {
+        path.append(screen)
+    }
+    
+    func pop() {
+        path.removeLast()
+    }
+    
+    func popToRoot() {
+        path.removeLast(path.count)
+    }
+}
+
+extension AudioCoordinator {
+    func presentSheet(_ sheet: SheetType) {
+        self.sheet = sheet
+    }
+    
+    func dismissSheet() {
+        self.sheet = nil
+    }
+}
+
+extension AudioCoordinator {
+    func presentFullScreenCover(_ fullScreenCover: FullScreenType) {
+        self.fullScreenCover = fullScreenCover
+    }
+    
+    func dismissFullScreenCover() {
+        self.fullScreenCover = nil
+    }
 }
 
 @MainActor
@@ -64,8 +100,10 @@ extension AudioCoordinator {
     @ViewBuilder
     func build(_ fullScreenCover: FullScreenType) -> some View {
         switch fullScreenCover {
-        case .none:
-            EmptyView()
+        case .audioPicker:
+            AudioPickerView(didPickDocuments: { [weak self] audioList in
+                self?.audioList = audioList
+            })
         }
     }
 }

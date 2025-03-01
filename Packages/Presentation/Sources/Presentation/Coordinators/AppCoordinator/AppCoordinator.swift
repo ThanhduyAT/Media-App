@@ -31,7 +31,6 @@ public class AppCoordinator: BaseCoordinatorProtocol {
     public typealias ScreenType = AppScreen
     public typealias SheetType = AppSheet
     public typealias FullScreenType = AppFullScreenCover
-    
 
     public var path: NavigationPath = NavigationPath()
     
@@ -41,11 +40,46 @@ public class AppCoordinator: BaseCoordinatorProtocol {
     
     public init() {}
 }
+
+public extension AppCoordinator {
+    func push(_ screen: ScreenType) {
+        path.append(screen)
+    }
+    
+    func pop() {
+        path.removeLast()
+    }
+    
+    func popToRoot() {
+        path.removeLast(path.count)
+    }
+}
+
+public extension AppCoordinator {
+    func presentSheet(_ sheet: SheetType) {
+        self.sheet = sheet
+    }
+    
+    func dismissSheet() {
+        self.sheet = nil
+    }
+}
+
+public extension AppCoordinator {
+    func presentFullScreenCover(_ fullScreenCover: FullScreenType) {
+        self.fullScreenCover = fullScreenCover
+    }
+    
+    func dismissFullScreenCover() {
+        self.fullScreenCover = nil
+    }
+}
+
 // MARK: - Presentation Style Providers
 @MainActor 
 public extension AppCoordinator {
     @ViewBuilder
-    func build(_ screen: AppScreen) -> some View {
+    func build(_ screen: ScreenType) -> some View {
         switch screen {
         case .none:
             EmptyView()
@@ -53,7 +87,7 @@ public extension AppCoordinator {
     }
     
     @ViewBuilder
-    func build(_ sheet: AppSheet) -> some View {
+    func build(_ sheet: SheetType) -> some View {
         switch sheet {
         case .none:
             EmptyView()
@@ -61,7 +95,7 @@ public extension AppCoordinator {
     }
     
     @ViewBuilder
-    func build(_ fullScreenCover: AppFullScreenCover) -> some View {
+    func build(_ fullScreenCover: FullScreenType) -> some View {
         switch fullScreenCover {
         case .login:
             EmptyView()

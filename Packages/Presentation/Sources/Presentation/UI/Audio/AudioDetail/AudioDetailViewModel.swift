@@ -13,7 +13,7 @@ import DIContainer
 
 @Observable
 public class AudioDetailViewModel {
-    var audioList: [Audio] = []
+    var audioList: [AudioModel] = []
     var currentAudioIndex: Int = 0
     
     private let audioUseCase: AudioUseCase
@@ -21,11 +21,29 @@ public class AudioDetailViewModel {
     public init(factory: AudioDetailViewModelFactory) {
         self.audioUseCase = factory.makeAudioUseCase()
     }
+    
+    @MainActor
+    func taskLoadAudioList(list: [AudioModel]) {
+        Task {
+            do {
+                try await loadAudioList(list: list)
+            } catch {
+                
+            }
+        }
+    }
 }
 
 extension AudioDetailViewModel {
-    func loadAudioList(list: [Audio]) async throws {
-        try await audioUseCase.loadPlaylist(list: list)
+    func loadAudioList(list: [AudioModel]) async throws {
+        let audioList = list.compactMap { audio in
+            Audio(id: audio.id, duration: audio.duration, url: audio.url, title: audio.title, artist: audio.artist)
+        }
+        try await audioUseCase.loadPlaylist(list: audioList)
+    }
+    
+    func play() {
+        audioUseCase.play()
     }
 }
 
